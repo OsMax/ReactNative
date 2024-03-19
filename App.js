@@ -1,5 +1,5 @@
 import { StatusBar } from "expo-status-bar";
-import { StyleSheet, Text, View } from "react-native";
+import { StyleSheet, Text, View, SafeAreaView } from "react-native";
 import { useFonts } from "expo-font";
 
 export default function App() {
@@ -11,12 +11,12 @@ export default function App() {
   }
 
   return (
-    <View style={styles.container}>
+    <SafeAreaView style={styles.container}>
       <Text style={styles.text}>I am durbecelo!!!</Text>
       <Text>VERY BIG DURBECELO!!!!!</Text>
       <Text>But i'm do it....</Text>
       <StatusBar style="auto" />
-    </View>
+    </SafeAreaView>
   );
 }
 
