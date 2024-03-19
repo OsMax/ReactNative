@@ -1,6 +1,7 @@
 import { StatusBar } from "expo-status-bar";
-import { StyleSheet, Text, View, SafeAreaView } from "react-native";
+import { StyleSheet, Text, SafeAreaView } from "react-native";
 import { useFonts } from "expo-font";
+import { RegistrationScreen } from "./src/screens/RegistrationScreen/RegistrationScreen";
 
 export default function App() {
   const [fontsLoaded] = useFonts({
@@ -16,6 +17,7 @@ export default function App() {
       <Text>VERY BIG DURBECELO!!!!!</Text>
       <Text>But i'm do it....</Text>
       <StatusBar style="auto" />
+      <RegistrationScreen />
     </SafeAreaView>
   );
 }
