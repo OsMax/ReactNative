@@ -1,5 +1,11 @@
 import { StatusBar } from "expo-status-bar";
-import { StyleSheet, Text, SafeAreaView } from "react-native";
+import {
+  StyleSheet,
+  Text,
+  SafeAreaView,
+  Image,
+  ImageBackground,
+} from "react-native";
 import { useFonts } from "expo-font";
 import { RegistrationScreen } from "./src/screens/RegistrationScreen/RegistrationScreen";
 
@@ -13,11 +19,22 @@ export default function App() {
 
   return (
     <SafeAreaView style={styles.container}>
-      <Text style={styles.text}>I am durbecelo!!!</Text>
-      <Text>VERY BIG DURBECELO!!!!!</Text>
-      <Text>But i'm do it....</Text>
-      <StatusBar style="auto" />
-      <RegistrationScreen />
+      <ImageBackground
+        style={{
+          flex: 1,
+          justifyContent: "center",
+          width: "100%",
+          alignItems: "center",
+        }}
+        source={"./assets/images/background.webp"}
+        resizeMode="cover"
+      >
+        <Text style={styles.text}>I am durbecelo!!!</Text>
+        <Text>VERY BIG DURBECELO!!!!!</Text>
+        <Text>But i'm do it....</Text>
+        <StatusBar style="auto" />
+        <RegistrationScreen />
+      </ImageBackground>
     </SafeAreaView>
   );
 }
@@ -28,6 +45,7 @@ const styles = StyleSheet.create({
     backgroundColor: "#fff",
     alignItems: "center",
     justifyContent: "center",
+    width: "100%",
   },
   text: {
     fontFamily: "Roboto-Black",
