@@ -83,4 +83,17 @@ export const styles = StyleSheet.create({
     color: "#1B4371",
     marginTop: 16,
   },
+  passContainer: {
+    width: "100%",
+    alignItems: "center",
+    justifyContent: "center",
+  },
+  passBtn: {
+    fontFamily: "Roboto-Black",
+    position: "absolute",
+    padding: 16,
+    right: 16,
+    bottom: 0,
+    color: "#1B4371",
+  },
 });
