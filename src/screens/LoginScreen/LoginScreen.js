@@ -12,7 +12,6 @@ import { styles } from "./LoginScreen.styles";
 import { useState } from "react";
 
 export const LoginScreen = ({ navigation }) => {
-  const [login, setLogin] = useState("");
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
 
