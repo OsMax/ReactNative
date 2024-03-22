@@ -29,11 +29,11 @@ export const LoginScreen = ({ navigation }) => {
       source={require("../../../assets/images/background.webp")}
       resizeMode="cover"
     >
-      <SafeAreaView style={styles.screen}>
-        <View style={styles.container}>
-          <Text style={styles.text}>Увійти</Text>
-          <View style={styles.form}>
-            <TouchableWithoutFeedback onPress={Keyboard.dismiss}>
+      <TouchableWithoutFeedback onPress={Keyboard.dismiss}>
+        <SafeAreaView style={styles.screen}>
+          <View style={styles.container}>
+            <Text style={styles.text}>Увійти</Text>
+            <View style={styles.form}>
               <KeyboardAvoidingView
                 style={styles.inputContainer}
                 behavior={Platform.OS == "ios" ? "padding" : "height"}
@@ -43,6 +43,7 @@ export const LoginScreen = ({ navigation }) => {
                   style={styles.input}
                   placeholder="Адреса електронної пошти"
                   onChangeText={setEmail}
+                  placeholderTextColor="#BDBDBD"
                 />
                 <View style={styles.passContainer}>
                   <TextInput
@@ -50,6 +51,7 @@ export const LoginScreen = ({ navigation }) => {
                     style={styles.input}
                     placeholder="Пароль"
                     onChangeText={setPassword}
+                    placeholderTextColor="#BDBDBD"
                   />
                   <Pressable
                     style={styles.passBtn}
@@ -60,20 +62,22 @@ export const LoginScreen = ({ navigation }) => {
                   </Pressable>
                 </View>
               </KeyboardAvoidingView>
-            </TouchableWithoutFeedback>
-            <Pressable style={styles.singUpBtn} onPress={submit}>
-              <Text style={styles.singUpText}>Зареєстуватися</Text>
-            </Pressable>
-            <Pressable onPress={() => navigation.navigate("SingUp")}>
-              <Text style={styles.singInText}>
-                <Text>Немає акаунту? </Text>
-                <Text style={{ borderBottomWidth: 1 }}>Зареєструватися</Text>
-              </Text>
-            </Pressable>
+              <Pressable style={styles.singUpBtn} onPress={submit}>
+                <Text style={styles.singUpText}>Зареєстуватися</Text>
+              </Pressable>
+              <Pressable onPress={() => navigation.navigate("SingUp")}>
+                <Text style={styles.singInText}>
+                  <Text>Немає акаунту? </Text>
+                  <Text style={{ textDecorationLine: "underline" }}>
+                    Зареєструватися
+                  </Text>
+                </Text>
+              </Pressable>
+            </View>
           </View>
-        </View>
-        <StatusBar style="auto" />
-      </SafeAreaView>
+          <StatusBar style="auto" />
+        </SafeAreaView>
+      </TouchableWithoutFeedback>
     </ImageBackground>
   );
 };
