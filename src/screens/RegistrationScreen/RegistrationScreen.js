@@ -31,18 +31,18 @@ export const RegistrationScreen = ({ navigation }) => {
       source={require("../../../assets/images/background.webp")}
       resizeMode="cover"
     >
-      <SafeAreaView style={styles.screen}>
-        <View style={styles.container}>
-          <View style={styles.avatarContainer}>
-            <View style={styles.avatarImg}></View>
-            <Image
-              style={styles.avatarBtn}
-              source={require("../../../assets/images/add.png")}
-            />
-          </View>
-          <Text style={styles.text}>Реєстрація</Text>
-          <View style={styles.form}>
-            <TouchableWithoutFeedback onPress={Keyboard.dismiss}>
+      <TouchableWithoutFeedback onPress={Keyboard.dismiss}>
+        <SafeAreaView style={styles.screen}>
+          <View style={styles.container}>
+            <View style={styles.avatarContainer}>
+              <View style={styles.avatarImg}></View>
+              <Image
+                style={styles.avatarBtn}
+                source={require("../../../assets/images/add.png")}
+              />
+            </View>
+            <Text style={styles.text}>Реєстрація</Text>
+            <View style={styles.form}>
               <KeyboardAvoidingView
                 style={styles.inputContainer}
                 behavior={Platform.OS == "ios" ? "padding" : "height"}
@@ -51,12 +51,14 @@ export const RegistrationScreen = ({ navigation }) => {
                   style={styles.input}
                   placeholder="Логін"
                   onChangeText={setLogin}
+                  placeholderTextColor="#BDBDBD"
                 />
                 <TextInput
                   inputMode="email"
                   style={styles.input}
                   placeholder="Адреса електронної пошти"
                   onChangeText={setEmail}
+                  placeholderTextColor="#BDBDBD"
                 />
                 <View style={styles.passContainer}>
                   <TextInput
@@ -64,6 +66,7 @@ export const RegistrationScreen = ({ navigation }) => {
                     style={styles.input}
                     placeholder="Пароль"
                     onChangeText={setPassword}
+                    placeholderTextColor="#BDBDBD"
                   />
                   <Pressable
                     style={styles.passBtn}
@@ -74,20 +77,22 @@ export const RegistrationScreen = ({ navigation }) => {
                   </Pressable>
                 </View>
               </KeyboardAvoidingView>
-            </TouchableWithoutFeedback>
-            <Pressable style={styles.singUpBtn} onPress={submit}>
-              <Text style={styles.singUpText}>Зареєстуватися</Text>
-            </Pressable>
-            <Pressable onPress={() => navigation.navigate("SingIn")}>
-              <Text style={styles.singInText}>
-                <Text>Вже є акаунт? </Text>
-                <Text style={{ borderBottomWidth: 1 }}>Увійти</Text>
-              </Text>
-            </Pressable>
+              <Pressable style={styles.singUpBtn} onPress={submit}>
+                <Text style={styles.singUpText}>Зареєстуватися</Text>
+              </Pressable>
+              <Pressable onPress={() => navigation.navigate("SingIn")}>
+                <Text style={styles.singInText}>
+                  <Text>Вже є акаунт? </Text>
+                  <Text style={{ textDecorationLine: "underline" }}>
+                    Увійти
+                  </Text>
+                </Text>
+              </Pressable>
+            </View>
           </View>
-        </View>
-        <StatusBar style="auto" />
-      </SafeAreaView>
+          <StatusBar style="auto" />
+        </SafeAreaView>
+      </TouchableWithoutFeedback>
     </ImageBackground>
   );
 };
