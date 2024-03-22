@@ -35,7 +35,6 @@ export const styles = StyleSheet.create({
     borderWidth: 1,
     borderColor: "#E8E8E8",
     marginTop: 16,
-    color: "#BDBDBD",
   },
   singUpBtn: {
     width: "90%",
