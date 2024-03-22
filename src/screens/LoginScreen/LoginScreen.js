@@ -14,7 +14,7 @@ import { useState } from "react";
 export const LoginScreen = ({ navigation }) => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
-  const [showPass, setShowPass] = useState(true);
+  const [hidePass, setHidePass] = useState(true);
 
   return (
     <ImageBackground
@@ -41,15 +41,15 @@ export const LoginScreen = ({ navigation }) => {
             />
             <View style={styles.passContainer}>
               <TextInput
-                secureTextEntry={showPass}
+                secureTextEntry={hidePass}
                 style={styles.input}
                 placeholder="Пароль"
                 onChangeText={setPassword}
               />
               <Pressable
                 style={styles.passBtn}
-                onPressIn={() => setShowPass(false)}
-                onPressOut={() => setShowPass(true)}
+                onPressIn={() => setHidePass(false)}
+                onPressOut={() => setHidePass(true)}
               >
                 <Text>Показати</Text>
               </Pressable>
