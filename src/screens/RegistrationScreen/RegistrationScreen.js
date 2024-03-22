@@ -7,6 +7,10 @@ import {
   Pressable,
   ImageBackground,
   TextInput,
+  Platform,
+  KeyboardAvoidingView,
+  TouchableWithoutFeedback,
+  Keyboard,
 } from "react-native";
 import { styles } from "./RegistrationScreen.styles";
 import { useState } from "react";
@@ -16,6 +20,10 @@ export const RegistrationScreen = ({ navigation }) => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [hidePass, setHidePass] = useState(true);
+
+  const submit = () => {
+    console.log(login, email, password);
+  };
 
   return (
     <ImageBackground
@@ -34,36 +42,40 @@ export const RegistrationScreen = ({ navigation }) => {
           </View>
           <Text style={styles.text}>Реєстрація</Text>
           <View style={styles.form}>
-            <TextInput
-              style={styles.input}
-              placeholder="Логін"
-              onChangeText={setLogin}
-            />
-            <TextInput
-              inputMode="email"
-              style={styles.input}
-              placeholder="Адреса електронної пошти"
-              onChangeText={setEmail}
-            />
-            <View style={styles.passContainer}>
-              <TextInput
-                secureTextEntry={hidePass}
-                style={styles.input}
-                placeholder="Пароль"
-                onChangeText={setPassword}
-              />
-              <Pressable
-                style={styles.passBtn}
-                onPressIn={() => setHidePass(false)}
-                onPressOut={() => setHidePass(true)}
+            <TouchableWithoutFeedback onPress={Keyboard.dismiss}>
+              <KeyboardAvoidingView
+                style={styles.inputContainer}
+                behavior={Platform.OS == "ios" ? "padding" : "height"}
               >
-                <Text>Показати</Text>
-              </Pressable>
-            </View>
-            <Pressable
-              style={styles.singUpBtn}
-              onPress={() => console.log(login, email, password)}
-            >
+                <TextInput
+                  style={styles.input}
+                  placeholder="Логін"
+                  onChangeText={setLogin}
+                />
+                <TextInput
+                  inputMode="email"
+                  style={styles.input}
+                  placeholder="Адреса електронної пошти"
+                  onChangeText={setEmail}
+                />
+                <View style={styles.passContainer}>
+                  <TextInput
+                    secureTextEntry={hidePass}
+                    style={styles.input}
+                    placeholder="Пароль"
+                    onChangeText={setPassword}
+                  />
+                  <Pressable
+                    style={styles.passBtn}
+                    onPressIn={() => setHidePass(false)}
+                    onPressOut={() => setHidePass(true)}
+                  >
+                    <Text>Показати</Text>
+                  </Pressable>
+                </View>
+              </KeyboardAvoidingView>
+            </TouchableWithoutFeedback>
+            <Pressable style={styles.singUpBtn} onPress={submit}>
               <Text style={styles.singUpText}>Зареєстуватися</Text>
             </Pressable>
             <Pressable onPress={() => navigation.navigate("SingIn")}>
