@@ -14,15 +14,32 @@ import {
 } from "react-native";
 import { styles } from "./RegistrationScreen.styles";
 import { useState } from "react";
+// import { launchImageLibrary } from "react-native-image-picker";
+import * as ImagePicker from "expo-image-picker";
 
 export const RegistrationScreen = ({ navigation }) => {
   const [login, setLogin] = useState("");
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [hidePass, setHidePass] = useState(true);
+  const [avatar, setAvatar] = useState(null);
+
+  const getAvatar = async () => {
+    let result = await ImagePicker.launchImageLibraryAsync({
+      mediaTypes: ImagePicker.MediaTypeOptions.All,
+      allowsEditing: true,
+      aspect: [4, 3],
+      quality: 1,
+    });
+
+    // console.log(result.assets[0].uri);
+    if (result) {
+      setAvatar(result.assets[0].uri);
+    }
+  };
 
   const submit = () => {
-    console.log(login, email, password);
+    console.log(login, email, password, avatar);
   };
 
   return (
@@ -35,11 +52,20 @@ export const RegistrationScreen = ({ navigation }) => {
         <SafeAreaView style={styles.screen}>
           <View style={styles.container}>
             <View style={styles.avatarContainer}>
-              <View style={styles.avatarImg}></View>
-              <Image
-                style={styles.avatarBtn}
-                source={require("../../../assets/images/add.png")}
-              />
+              <View style={styles.avatarImg}>
+                {avatar && (
+                  <Image
+                    style={{ width: "100%", height: "100%" }}
+                    source={{ uri: avatar }}
+                  />
+                )}
+              </View>
+              <Pressable onPress={getAvatar}>
+                <Image
+                  style={styles.avatarBtn}
+                  source={require("../../../assets/images/add.png")}
+                />
+              </Pressable>
             </View>
             <Text style={styles.text}>Реєстрація</Text>
             <View style={styles.form}>
