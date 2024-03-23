@@ -32,7 +32,6 @@ export const RegistrationScreen = ({ navigation }) => {
       quality: 1,
     });
 
-    // console.log(result.assets[0].uri);
     if (result) {
       setAvatar(result.assets[0].uri);
     }
