@@ -29,6 +29,7 @@ export const styles = StyleSheet.create({
     height: "100%",
     backgroundColor: "#F6F6F6",
     borderRadius: 16,
+    overflow: "hidden",
   },
   avatarBtn: {
     position: "relative",
@@ -55,7 +56,7 @@ export const styles = StyleSheet.create({
     borderWidth: 1,
     borderColor: "#E8E8E8",
     marginTop: 16,
-    color: "#BDBDBD",
+    color: "#000",
   },
   singUpBtn: {
     width: "90%",
@@ -95,5 +96,9 @@ export const styles = StyleSheet.create({
     right: 16,
     bottom: 0,
     color: "#1B4371",
+  },
+  inputContainer: {
+    width: "100%",
+    alignItems: "center",
   },
 });

@@ -1,3 +1,4 @@
+import "react-native-gesture-handler";
 import { StatusBar } from "expo-status-bar";
 import { StyleSheet } from "react-native";
 import { useFonts } from "expo-font";
@@ -22,21 +23,23 @@ export default function App() {
 
   return (
     <>
-      <NavigationContainer>
-        <Stack.Navigator>
-          <Stack.Screen
-            name="SingUp"
-            component={RegistrationScreen}
-            options={{ headerShown: false }}
-          />
-          <Stack.Screen
-            name="SingIn"
-            component={LoginScreen}
-            options={{ headerShown: false }}
-          />
-        </Stack.Navigator>
-      </NavigationContainer>
-      <StatusBar style="auto" />
+      <>
+        <NavigationContainer>
+          <Stack.Navigator>
+            <Stack.Screen
+              name="SingUp"
+              component={RegistrationScreen}
+              options={{ headerShown: false }}
+            />
+            <Stack.Screen
+              name="SingIn"
+              component={LoginScreen}
+              options={{ headerShown: false }}
+            />
+          </Stack.Navigator>
+        </NavigationContainer>
+        <StatusBar style="auto" />
+      </>
     </>
   );
 }
